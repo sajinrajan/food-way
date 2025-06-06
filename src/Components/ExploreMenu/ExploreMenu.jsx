@@ -1,0 +1,58 @@
+// import React from 'react'
+// import './ExploreMenu.css'
+// import { menu_list } from '../../assets/assets'
+
+
+// function ExploreMenu({ category, setCategory }){
+//   return (
+//     <div className='explore-menu' id='explore-menu'>
+//       <h1>Explore Our Menu</h1>
+//       <p className='explore-menu-text'>Food is more than just sustenance; it’s an experience. My favorite food is [your favorite food], and I love it because of 
+//       its rich flavors,</p>
+//       <div className="explore-menu-list">
+//       {menu_list.map( (item,index)=>{
+//         return(
+//             <div  key={index}  onClick={() => setCategory(prev => (prev === item.menu_name ? "All" : item.menu_name))} className="explore-menu-list-item">
+//                 <img src={item.menu_image} alt="" />
+//                 <p>{item.menu_name}</p>
+//             </div>
+//         )
+//       })}
+//       </div>
+//       <hr />
+//     </div>
+//   )
+// }
+// export default ExploreMenu
+
+
+import React from 'react';
+import './ExploreMenu.css';
+import { menu_list } from '../../assets/assets';
+
+function ExploreMenu({ category, setCategory }) {
+  return (
+    <div className='explore-menu' id='explore-menu'>
+      <h1>Explore Our Menu</h1>
+      <p className='explore-menu-text'>
+        Food is more than just sustenance; it’s an experience. My favorite food is [your favorite food], and I love it because of 
+        its rich flavors.
+      </p>
+      <div className="explore-menu-list">
+        {menu_list.map((item, index) => (
+          <div 
+            key={index} 
+            onClick={() => setCategory(prev => (prev === item.menu_name ? "All" : item.menu_name))} 
+            className="explore-menu-list-item"
+          >
+            <img className={category===item.menu_name?"active":""} src={item.menu_image} alt={item.menu_name} />
+            <p>{item.menu_name}</p>
+          </div>
+        ))}
+      </div>
+      <hr />
+    </div>
+  );
+}
+
+export default ExploreMenu;
