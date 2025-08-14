@@ -8,7 +8,6 @@ const foodSchema = new mongoose.Schema({
     category:{type:String,require:true}
 
 })
-
+// typ one of food
 const foodModel = mongoose.models.food || mongoose.model("food",foodSchema);
-
 export default foodModel;
